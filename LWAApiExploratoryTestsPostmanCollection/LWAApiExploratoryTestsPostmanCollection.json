@@ -1,0 +1,2352 @@
+{
+	"info": {
+		"_postman_id": "492ae489-8aff-4b10-8ff6-0aa8fe494ef0",
+		"name": "Postman Collection ECB API",
+		"description": "ECB API Default Postman Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LWA-Controller",
+			"item": [
+				{
+					"name": "Register NEW Node",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"responsibleId\": \"32898\",\n    \"externalId\": \"testNode1\",\n    \"ownershipMode\": \"OWNER\",\n    \"node\": {\n        \"attributes\": {\n            \"oem\": \"1233\",\n            \"location\": \"1234\",\n            \"model\": \"123455\",\n            \"imsi\": \"abc1234\",\n            \"msisdn\": \"1234abc\"\n        },\n        \"eventType\": \"Str1\",\n        \"id\": \"Str2\",\n        \"nodeType\": \"CAMERA\",\n        \"schemaType\": \"Str4\"\n    },\n    \"nodeStatus\": \"ACTIVE\",\n    \"orderId\": \"10234\",\n    \"settlementId\": \"1234\",\n    \"startDate\": \"2019-11-05T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/registration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								"registration"
+							]
+						},
+						"description": "Description:\r\nRegister a new node.\r\n\r\nParameters:\r\n\r\nresponsibleId:  M  ‘id_acc’ | ‘namespace/nmlogin’\r\nnodeType:  M  ENUM - Valid Node_Type\r\nexternalId:  M  string\r\nownershipMode:  M  ENUM - Valid Ownership_Mode\r\nnodeStatus:  M  ENUM - Valid Node_Status\r\norderId:  O  String\r\nsettlementId:  O  ‘id_acc’ | ‘namespace/nmlogin’\r\nstartDate:  M  ECB Timestamp\r\nnode  M/O  String – valid json string for NodeType\r\n\r\nExample:\r\nBody:\r\n{\r\n \"responsibleId\": \"135306\",\r\n \"externalId\": \"CA891046140ox\",\r\n \"ownershipMode\": \"DAAS\",\r\n \"nodeStatus\": \"ACTIVE\",\r\n \"orderId\": \"FUG903\",\r\n \"startDate\": \"2019-08-26T00:00:00Z\",\r\n \"node\": {\r\n  \"nodeType\": \"CAMERA\",\r\n  \"attributes\": {\r\n   \"msisdn\": \"9196558778\",\r\n   \"imsi\": \"3256845127882\",\r\n   \"oem\": \"Sony\",\r\n   \"model\": \"OX_800_b\",\r\n   \"location\": \"Park_loc_3423\",\r\n   }\r\n }\r\n}\r\n\r\nParameters"
+					},
+					"response": [
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						}
+					]
+				},
+				{
+					"name": "Update IOT Guiding Info",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"externalId\": \"testNode1\",\n    \"node\": {\n        \"attributes\": {\n            \"oem\": \"updatedoem\",\n            \"location\": \"updatedlocation\",\n            \"model\": \"updatedmodel\",\n            \"imsi\": \"updatedimsi\",\n            \"msisdn\": \"updatedmsisdn\"\n        }\n    },\n    \"startDate\": \"2019-11-06T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/registration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								"registration"
+							]
+						},
+						"description": "Description:\r\nChanges the payer of a node per requested start date. The node is to be identified via node.nodeType and externalID. A valid new payerID is required and requested start date cannot be for closed intervals for either old or new payer. Only a single Payer request change for a node on any given day is allowed.\r\n\r\nAdditional attributes passed – either via direct parameters or via node.attributes – are reflected in the update node, given they pass the schema evaluation.\r\n\r\nParameters:\r\n\r\nResponsibleId:  M  ‘id_acc’ | ‘namespace/nmlogin’\r\nnodeType:  M  ENUM - Valid Node_Type\r\nexternalId:  M  string\r\nownershipMode:  M  ENUM - Valid Ownership_Mode\r\nnodeStatus:  M  ENUM - Valid Node_Status\r\norderId:  O  String\r\nsettlementId:  O  ‘id_acc’ | ‘namespace/nmlogin’\r\nstartDate:  M  ECB Timestamp\r\nnode  M/O  String – valid json string for NodeType\r\n\r\nExample:\r\nBody:\r\n{\r\n \"ResponsibleId\": \"135306\",\r\n \"externalId\": \"CA891046140ox\",\r\n \"startDate\": \"2019-08-26T00:00:00Z\",\r\n \"node\": {\r\n  \"nodeType\": \"CAMERA\",\r\n  \"attributes\": {\r\n   }\r\n }\r\n}"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						}
+					]
+				},
+				{
+					"name": "Update IOT All Attributes",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"responsibleId\": \"7225\",\n    \"externalId\": \"testNode1\",\n    \"ownershipMode\": \"OWNER\",\n    \"node\": {\n        \"attributes\": {\n            \"oem\": \"updatedoem\",\n            \"location\": \"updatedlocation\",\n            \"model\": \"updatedmodel\",\n            \"imsi\": \"updatedimsi\",\n            \"msisdn\": \"updatedmsisdn\"\n        },\n        \"eventType\": \"Str1\",\n        \"id\": \"Str2\",\n        \"nodeType\": \"CAMERA\",\n        \"schemaType\": \"Str4\"\n    },\n    \"orderId\": \"10234\",\n    \"settlementId\": \"1234\",\n    \"startDate\": \"2019-11-06T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/registration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								"registration"
+							]
+						},
+						"description": "Description:\r\nChanges the payer of a node per requested start date. The node is to be identified via node.nodeType and externalID. A valid new payerID is required and requested start date cannot be for closed intervals for either old or new payer. Only a single Payer request change for a node on any given day is allowed.\r\n\r\nAdditional attributes passed – either via direct parameters or via node.attributes – are reflected in the update node, given they pass the schema evaluation.\r\n\r\nParameters:\r\n\r\nResponsibleId:  M  ‘id_acc’ | ‘namespace/nmlogin’\r\nnodeType:  M  ENUM - Valid Node_Type\r\nexternalId:  M  string\r\nownershipMode:  M  ENUM - Valid Ownership_Mode\r\nnodeStatus:  M  ENUM - Valid Node_Status\r\norderId:  O  String\r\nsettlementId:  O  ‘id_acc’ | ‘namespace/nmlogin’\r\nstartDate:  M  ECB Timestamp\r\nnode  M/O  String – valid json string for NodeType\r\n\r\nExample:\r\nBody:\r\n{\r\n \"ResponsibleId\": \"135306\",\r\n \"externalId\": \"CA891046140ox\",\r\n \"startDate\": \"2019-08-26T00:00:00Z\",\r\n \"node\": {\r\n  \"nodeType\": \"CAMERA\",\r\n  \"attributes\": {\r\n   }\r\n }\r\n}"
+					},
+					"response": [
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update IOT Status",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"externalId\": \"testNode1\",\n     \"node\": {\n        \"nodeType\": \"CAMERA\"\n    },\n    \"nodeStatus\": \"SUSPENDED\",\n    \"startDate\": \"2019-11-06T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/registration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								"registration"
+							]
+						},
+						"description": "Description:\r\nChanges the payer of a node per requested start date. The node is to be identified via node.nodeType and externalID. A valid new payerID is required and requested start date cannot be for closed intervals for either old or new payer. Only a single Payer request change for a node on any given day is allowed.\r\n\r\nAdditional attributes passed – either via direct parameters or via node.attributes – are reflected in the update node, given they pass the schema evaluation.\r\n\r\nAvailable Node Statuses:\r\nACTIVE\r\nSUSPENDED\r\nTERMINATED\r\n\r\n\r\n\r\nExample:\r\nBody:\r\n{\r\n \"externalId\": \"CA891046140ox\",\r\n \"startDate\": \"2019-08-26T00:00:00Z\",\r\n \"node\": {\r\n  \"nodeType\": \"CAMERA\",\r\n  }\r\n  \"nodeStatus\": \"SUSPENDED\"\r\n}"
+					},
+					"response": [
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Update IOT Device Payer (Move)",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"responsibleId\": \"31799\",\n    \"externalId\": \"testNode1\",\n     \"node\": {\n        \"nodeType\": \"CAMERA\"\n    },\n    \"startDate\": \"2019-11-07T00:00:00Z\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/registration",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								"registration"
+							]
+						},
+						"description": "Description:\r\nChanges the payer of a node per requested start date. The node is to be identified via node.nodeType and externalID. A valid new payerID is required and requested start date cannot be for closed intervals for either old or new payer. Only a single Payer request change for a node on any given day is allowed.\r\n\r\nAdditional attributes passed – either via direct parameters or via node.attributes – are reflected in the update node, given they pass the schema evaluation.\r\n\r\nAvailable Node Statuses:\r\nACTIVE\r\nSUSPENDED\r\nTERMINATED\r\n\r\n\r\n\r\nExample:\r\nBody:\r\n{\r\n \"externalId\": \"CA891046140ox\",\r\n \"startDate\": \"2019-08-26T00:00:00Z\",\r\n \"node\": {\r\n  \"nodeType\": \"CAMERA\",\r\n  }\r\n  \"nodeStatus\": \"SUSPENDED\"\r\n}"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "\"<string>\""
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"accountId\": \"<string>\",\n    \"endDate\": \"<date>\",\n    \"id\": \"<string>\",\n    \"methodOfSale\": \"<integer>\",\n    \"node\": {\n        \"attributes\": \"<object>\",\n        \"eventType\": \"<string>\",\n        \"externalID\": \"<string>\",\n        \"id\": \"<string>\",\n        \"nodeType\": \"<string>\",\n        \"nodeTypeVersion\": \"<string>\"\n    },\n    \"nodeStatus\": \"<integer>\",\n    \"startDate\": \"<date>\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/registration",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"registration"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Retrieve IOT Device",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/iot/:externalId/:nodeType",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"iot",
+								":externalId",
+								":nodeType"
+							],
+							"variable": [
+								{
+									"key": "externalId",
+									"value": ""
+								},
+								{
+									"key": "nodeType",
+									"value": ""
+								}
+							]
+						},
+						"description": "Gets node details"
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"<string>"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"attributes\": \"<object>\",\n \"eventType\": \"<string>\",\n \"externalID\": \"<string>\",\n \"id\": \"<string>\",\n \"nodeType\": \"<string>\",\n \"nodeTypeVersion\": \"<string>\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"<string>"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"<string>"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/iot/<string>",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"iot",
+										"<string>"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Bulk-LWA-Controller",
+			"item": [
+				{
+					"name": "Bulk Backend - Get Status/Result",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/bulk/iot/:requestId/download",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"bulk",
+								"iot",
+								":requestId",
+								"download"
+							],
+							"variable": [
+								{
+									"key": "requestId",
+									"value": "bf7351a6a027492b83d2f60b8e4bbd0e"
+								}
+							]
+						},
+						"description": "Download processed file"
+					},
+					"response": [
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/<string>/download",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"<string>",
+										"download"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/<string>/download",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"<string>",
+										"download"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/<string>/download",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"<string>",
+										"download"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/<string>/download",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"<string>",
+										"download"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/octet-stream"
+								}
+							],
+							"cookie": [],
+							"body": "<byte>"
+						}
+					]
+				},
+				{
+					"name": "Bulk Backend - Upload new IOT Device Camera",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							},
+							{
+								"description": "nodeType",
+								"key": "schemaType",
+								"value": "CAMERA_BULK_CREATE"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "ownershipMode",
+								"type": "text",
+								"value": "LEASE"
+							},
+							{
+								"key": "orderId",
+								"type": "text",
+								"value": "str2"
+							},
+							{
+								"key": "responsibleId",
+								"type": "text",
+								"value": "31641"
+							},
+							{
+								"key": "startDate",
+								"type": "text",
+								"value": "2019-11-01T12:24:03.163Z"
+							},
+							{
+								"key": "nodeStatus",
+								"type": "text",
+								"value": "ACTIVE"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Developer/Documents/BulkUploadTestDataCamera600"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/bulk/iot/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"bulk",
+								"iot",
+								"upload"
+							]
+						},
+						"description": "Bulk Upload NEW Nodes"
+					},
+					"response": [
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						},
+						{
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"requestId\": \"<string>\",\n \"status\": \"<integer>\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Bulk Backend - Upload new IOT Device AirSensor",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							},
+							{
+								"key": "schemaType",
+								"value": "AIRSENSOR_BULK_CREATE",
+								"description": "nodeType"
+							},
+							{
+								"key": "Content-Type",
+								"value": "multipart/form-data"
+							},
+							{
+								"key": "ownershipMode",
+								"value": "LEASE",
+								"type": "text"
+							},
+							{
+								"key": "orderId",
+								"value": "str2",
+								"type": "text"
+							},
+							{
+								"key": "responsibleId",
+								"value": "31641",
+								"type": "text"
+							},
+							{
+								"key": "startDate",
+								"value": "2019-11-01T12:24:03.163Z",
+								"type": "text"
+							},
+							{
+								"key": "nodeStatus",
+								"value": "ACTIVE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Developer/Documents/BulkUpdatedTestDataAirSensor"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/bulk/iot/upload",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"bulk",
+								"iot",
+								"upload"
+							]
+						},
+						"description": "Bulk Upload NEW Nodes"
+					},
+					"response": [
+						{
+							"name": "Accepted",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"requestId\": \"<string>\",\n \"status\": \"<integer>\"\n}"
+						},
+						{
+							"name": "Bad Request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Not Found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n \"errorCode\": \"<integer>\",\n \"message\": \"<string>\"\n}"
+						},
+						{
+							"name": "Unauthorized",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"description": {
+											"content": "nodeType",
+											"type": "text/plain"
+										},
+										"key": "nodeType",
+										"value": "<string>"
+									},
+									{
+										"key": "Content-Type",
+										"value": "multipart/form-data"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "file",
+											"value": "<binary>"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{baseUrl}}/lwa/bulk/iot/upload",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"lwa",
+										"bulk",
+										"iot",
+										"upload"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Bulk Backend - Retrieve IOT Device",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							},
+							{
+								"key": "accountId",
+								"value": "32898",
+								"type": "text"
+							},
+							{
+								"key": "requestedDate",
+								"value": "2019-10-16T00:00:00Z",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"attributes\": {},\r\n  \"endDate\": \"2019-11-20T10:27:53.320Z\",\r\n  \"externalId\": \"testNode1\",\r\n  \"nodeStatus\": \"ACTIVE\",\r\n  \"nodeType\": \"CAMERA\",\r\n  \"orderId\": \"string\",\r\n  \"ownershipMode\": \"LEASE\",\r\n  \"responsibleId\": \"string\",\r\n  \"settlementId\": \"string\",\r\n  \"startDate\": \"2019-11-20T10:27:53.320Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/lwa/searchable?size=10&page=1&sort=nodeStatus|desc",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"lwa",
+								"searchable"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "sort",
+									"value": "nodeStatus|desc"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "Create Account (Responsible)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"type": "text",
+								"value": "Bearer {{current_token}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \r\n    \"password\": \"123\", \r\n    \"dayOfWeek\": 5, \r\n    \"accountType\": \"CorporateAccount\", \r\n    \"accountStartDate\": \"2019-10-01T00:00:00.000Z\",\r\n    \"accountViews\": [ \r\n        {  \"viewName\": \"Internal\", \r\n            \"props\": { \r\n                \"currency\": \"USD\", \r\n                \"usageCycleType\": \"DAILY\", \r\n                \"billable\": \"Y\" \r\n            } \r\n        } \r\n    ], \r\n    \"confirmPassword\": \"123\",\r\n    \"nameSpace\": \"mt\", \r\n    \"userName\": \"Account1\" \r\n} ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/account-entity",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"account-entity"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Account State",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{current_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"accountId\": \"6489\",\r\n\t\"accountState\": \"AC\",\r\n\t\"vtStart\": \"2019-11-05T15:00:00Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/ecb-customer/svc/account-state",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"ecb-customer",
+								"svc",
+								"account-state"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Token registration (once)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b44e2d2-21da-49f2-a1ba-b25d6bacc856",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"client_id\", jsonData.client_id);",
+							"postman.setGlobalVariable(\"client_secret\", jsonData.client_secret);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"grant_types\": [\r\n        \"password\",\r\n        \"refresh_token\"\r\n    ],\r\n    \"mutual_tls_sender_constrained_access_tokens\": false,\r\n    \"registration_client_uri\": \"https://surya17cd.metratech.com:8711/ecb-security/uaa/register\",\r\n    \"client_name\": \"ecbapipostman33\",\r\n    \"response_types\": [\r\n        \"token\"\r\n    ],\r\n    \"scope\": \"read write\",\r\n    \"software_id\": \"ecbapipostman33\"\r\n}\r\n"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/ecb-security/uaa/register",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ecb-security",
+						"uaa",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get token",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4b44e2d2-21da-49f2-a1ba-b25d6bacc856",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setGlobalVariable(\"current_token\", jsonData.access_token);",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ecb-security/uaa/oauth/token?client_id={{client_id}}&client_secret={{client_secret}}&grant_type={{grant_type}}&username={{username}}&password={{password}}&override={{override}}&scope={{scope}}",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ecb-security",
+						"uaa",
+						"oauth",
+						"token"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{client_id}}"
+						},
+						{
+							"key": "client_secret",
+							"value": "{{client_secret}}"
+						},
+						{
+							"key": "grant_type",
+							"value": "{{grant_type}}"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}"
+						},
+						{
+							"key": "override",
+							"value": "{{override}}"
+						},
+						{
+							"key": "scope",
+							"value": "{{scope}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

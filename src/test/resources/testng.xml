@@ -1,0 +1,20 @@
+<suite name="LightWeightAccount">
+    <test name="testngTest">
+        <classes>
+            <class name="bluesky.restapi.lightWeightAccount.RegisterNewIotDeviceTest" />
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceResponsibleTest" />
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceGuidingInfoTest" />
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceWithSameAttributeValuesTest" />
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceAttributesOnTheCreatedDayTest" />
+            <class name="bluesky.restapi.lightWeightAccount.bulkUploadIotDevices.BulkRetrieveNodesForResponsibleTest" />
+            <class name="bluesky.restapi.lightWeightAccount.bulkUploadIotDevices.BulkUpdateNodeStatusTest" />
+            <class name="bluesky.restapi.lightWeightAccount.bulkUploadIotDevices.BulkUploadNodesTest" />
+            <class name="bluesky.restapi.lightWeightAccount.bulkUploadIotDevices.BulkUpdateNodesResponsibleTest" />
+            <class name="bluesky.restapi.lightWeightAccount.RetrieveIotDeviceTest" />
+            <class name="bluesky.restapi.lightWeightAccount.bulkUploadIotDevices.DownloadProcessedFilesNodesTest" />
+            <class name="bluesky.restapi.lightWeightAccount.SetNodeEndDateToSystemEndDateTest"/>
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceStatusActiveSuspendedTest"/>
+            <class name="bluesky.restapi.lightWeightAccount.updateIotDevice.UpdateIotDeviceStatusTerminatedTest"/>
+        </classes>
+    </test>
+</suite>

@@ -1,0 +1,39 @@
+{
+	"id": "8f186e9c-77e0-406f-b245-c11cc1cc647e",
+	"name": "ECB API VM",
+	"values": [
+		{
+			"key": "baseUrl",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "grant_type",
+			"value": "password",
+			"enabled": true
+		},
+		{
+			"key": "username",
+			"value": "admin",
+			"enabled": true
+		},
+		{
+			"key": "password",
+			"value": "123",
+			"enabled": true
+		},
+		{
+			"key": "override",
+			"value": "False",
+			"enabled": true
+		},
+		{
+			"key": "scope",
+			"value": "read write",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2019-11-21T11:33:19.009Z",
+	"_postman_exported_using": "Postman/7.11.0"
+}
